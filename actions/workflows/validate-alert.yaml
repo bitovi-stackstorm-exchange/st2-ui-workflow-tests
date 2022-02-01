@@ -1,0 +1,11 @@
+version: 1.0
+
+input:
+  - alert
+tasks:
+  notify:
+    action: core.echo
+    input:
+      message: |
+        Processing alert.
+        <% ctx().alert_data.alert.data %>

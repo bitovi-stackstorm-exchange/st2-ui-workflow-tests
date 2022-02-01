@@ -1,0 +1,12 @@
+---
+ref: bitovi_test
+name: Workflow Composer Test Pack
+description: Test pack for Workflow Composer enhancement development
+keywords:
+    - workflow composer
+    - dev
+version: 0.0.1
+author: Bitovi
+email: dylan@bitovi.com
+# dependencies:
+#   - 

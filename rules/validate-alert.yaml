@@ -1,0 +1,32 @@
+---
+name: validate-alert
+description: Test rule that searches for the key 'data' in a list and returns a list of matches
+enabled: true
+
+trigger:
+  type: core.st2.webhook
+  parameters:
+      url: "webhook-alert/handle-alert"
+
+criteria:
+  trigger.body.alert:
+    type: "search"
+    condition: any
+    pattern:
+      item.data:
+        type: "equals"
+        pattern: "foo"
+
+# Should trigger on:
+# {"alert": [{"data":"foo","time":"12:00","type":"system"},{"data":"bar","time":"6:00","type":"service"},{"data":"baz","time":"18:00","type":"application"}]}
+# 
+# Output: ["foo","bar","baz"] to Stackstorm console
+#
+
+action:
+    ref: st2-ui-workflow-tests/validate-alert
+    parameters:
+      alert_data: "{{ trigger.body }}"
+
+# alert_data in the above example will contain:
+# {"alert": [{"data":"foo","time":"12:00","type":"system"},{"data":"bar","time":"6:00","type":"service"},{"data":"baz","time":"18:00","type":"application"}]}

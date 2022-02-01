@@ -1,0 +1,11 @@
+---
+# Workflow metadata file
+name: validate-alert
+description: Validate Alert - Search Test
+runner_type: orquesta
+entry_point: workflows/validate-alert.yaml
+enabled: true
+parameters:
+  alert_data:
+    required: true
+    type: object
