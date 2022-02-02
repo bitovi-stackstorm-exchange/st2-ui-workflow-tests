@@ -16,7 +16,7 @@ Provided with the `alert` object of the form:
 
 The workflow should run and output a list of `data` values from all three objects:
 ```
-["foo","bar","baz"]
+["bar","foo","baz"]
 ```
 
 If there is no `foo` object in `alert`, the workflow should not run.
